@@ -1,0 +1,3 @@
+git add .
+git commit -m "版本日志"
+git push -u origin master
