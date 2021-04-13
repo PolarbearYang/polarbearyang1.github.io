@@ -1,6 +1,7 @@
 git add .
 git commit -m "版本日志"
-git branch -M main
+git push
 
+# git branch -M main
 git pull origin master
 git push -u origin master
