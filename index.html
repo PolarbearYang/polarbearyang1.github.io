@@ -4,11 +4,64 @@
     <title>Example</title>
     <meta charset="UTF-8">
     <meta name="author" content="polarbearyang">
-    <script type="text/javascript" src="test.js"></script>
 </head>
+
 <body>
-<script type="text/javascript">
-    document.writeln("print a penguin! Oh no! Punk!")
+<p id="KD">
+    <span>Knowledge distillation</span> pursues a diminutive yet well-behaved student network by harnessing the knowledge
+    learned by a cumbersome teacher model.
+</p>
+
+<p id="BG">
+    Prior methods achieve this by making the student imitate shallow behaviors,
+    such as <span>soft targets</span>, <span>features</span>, or <span>attention</span>,
+    of the teacher.
+</p>
+
+<p id="cookiedata">
+
+</p>
+
+<button id="write">Add Cookie</button>
+
+<button id="update">Update Cookie</button>
+
+<script>
+    document.writeln("<pre>URL: " + document.URL);
+    var elems = document.getElementsByTagName("p");
+    for (var i=0; i<elems.length; i++){
+        document.writeln("Element ID: " + elems[i].id);
+        elems[i].style.border = "double black";
+        elems[i].style.padding = "4px";
+        elems[i].style.backgroundImage = "url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fsoftbbs%2F1003%2F07%2Fc0%2F3134443_1267900790753_1024x1024soft.jpg&refer=http%3A%2F%2Fimg.pconline.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1621689363&t=f14b7c9d03846618c6104a67d9aaad10)"
+    }
+    for (var k in document.location){
+        document.writeln("Name:" + k + " Value: " + document.location[k])
+    }
+    document.writeln("</pre>");
+    document.getElementById("pressme").onclick = function () {
+        document.location.assign("https://www.baidu.com");
+    }
+    var cookieCount = 0;
+    document.getElementById("update").onclick = updateCookie;
+    document.getElementById("write").onclick = createCookie;
+    readCookies();
+
+    function readCookies() {
+        document.getElementById("cookiedata").innerHTML = document.cookie;
+    }
+
+    function createCookie(){
+        cookieCount++;
+        document.cookie = "Cookie_" + cookieCount + "=Value_" + cookieCount;
+        readCookies();
+    }
+
+    function updateCookie(){
+        document.cookie = "Cookie_" + cookieCount + "=Updated_" + cookieCount;
+        readCookies();
+    }
+
 </script>
 </body>
 </html>
